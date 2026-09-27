@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频题材趋势研究"
+  short_description: "研究当前热门视频题材并生成来源清晰的报告。"
+  default_prompt: "使用 $video-trend-research 研究当前高热度、高用户偏好的视频题材，并生成带来源的 Markdown 报告。"

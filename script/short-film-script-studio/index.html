@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>短片剧本工作台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell" id="app">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark">剧</div>
+        <div>
+          <p class="eyebrow">SHORT FILM SCRIPT STUDIO</p>
+          <h1>短片剧本工作台</h1>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="save-state" id="saveState" aria-live="polite">未保存</span>
+        <button class="btn btn-ghost" type="button" data-action="load-sample">加载示例</button>
+        <button class="btn btn-ghost" type="button" data-action="save">保存</button>
+        <button class="btn btn-primary" type="button" data-action="export-project">导出项目 Markdown</button>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <aside class="sidebar panel">
+        <div class="sidebar-heading">
+          <div>
+            <p class="section-kicker">制作流程</p>
+            <h2>项目状态</h2>
+          </div>
+          <span class="status-dot" id="projectDot"></span>
+        </div>
+        <div class="project-mini" id="projectMini">未命名短片</div>
+        <nav class="stage-list" id="stageList" aria-label="短片剧本流程"></nav>
+        <div class="sidebar-footer">
+          <button class="btn btn-outline btn-block" type="button" data-action="reset">新建空白项目</button>
+          <p>所有修改会保存到本机浏览器。导出后可将 Markdown 文件交给下一阶段 Agent。</p>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <div class="workspace-header">
+          <div>
+            <p class="section-kicker" id="stageEyebrow">阶段 01</p>
+            <h2 id="stageTitle">项目简报</h2>
+            <p class="stage-description" id="stageDescription"></p>
+          </div>
+          <div class="stage-state-pill" id="stageState">进行中</div>
+        </div>
+        <div class="editor-surface" id="editor" aria-live="polite"></div>
+        <div class="workspace-footer">
+          <button class="btn btn-ghost" type="button" data-action="previous">上一步</button>
+          <div class="footer-hint" id="footerHint">先填写项目简报，再确认进入题材研究。</div>
+          <button class="btn btn-primary" type="button" data-action="confirm" id="confirmBtn">确认并进入下一步</button>
+        </div>
+      </section>
+
+      <aside class="inspector panel">
+        <div class="inspector-block">
+          <div class="inspector-heading">
+            <div>
+              <p class="section-kicker">进度</p>
+              <h2 id="progressLabel">1 / 8</h2>
+            </div>
+            <span class="progress-percent" id="progressPercent">13%</span>
+          </div>
+          <div class="progress-track" aria-label="项目进度" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="13">
+            <div class="progress-fill" id="progressBar"></div>
+          </div>
+        </div>
+        <div class="inspector-block gate-block">
+          <p class="section-kicker">当前确认点</p>
+          <h3 id="gateTitle">确认项目参数</h3>
+          <p id="gateCopy">完成当前阶段后，系统会解锁下一阶段。</p>
+        </div>
+        <div class="inspector-block prompt-block">
+          <div class="inspector-heading inline-heading">
+            <div>
+              <p class="section-kicker">下一步交接提示词</p>
+              <h3>给 Agent 的工作指令</h3>
+            </div>
+            <button class="icon-btn" type="button" data-action="copy-prompt" aria-label="复制下一步提示词">复制</button>
+          </div>
+          <pre id="nextPrompt">完成当前阶段后，这里会生成下一步提示词。</pre>
+        </div>
+        <div class="inspector-block activity-block">
+          <div class="inspector-heading inline-heading">
+            <div>
+              <p class="section-kicker">记录</p>
+              <h3>最近操作</h3>
+            </div>
+            <button class="text-btn" type="button" data-action="clear-log">清空</button>
+          </div>
+          <ol class="activity-list" id="activityLog"></ol>
+        </div>
+      </aside>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

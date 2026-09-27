@@ -1,0 +1,4 @@
+interface:
+  display_name: "短片剧本审查"
+  short_description: "从逻辑、节奏和制作可行性方面审查短片剧本。"
+  default_prompt: "使用 $screenplay-review 诊断并排序短片剧本中的问题。"

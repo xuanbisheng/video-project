@@ -1,0 +1,7 @@
+interface:
+  display_name: "Asset Prompt Pack"
+  short_description: "把角色道具场景拆成两套可复用生图提示词"
+  brand_color: "#7C3AED"
+  default_prompt: "使用 $asset-prompt-pack 从这份剧本提取角色、道具和场景，并分别生成通用生图与 Midjourney 提示词 Markdown。"
+policy:
+  allow_implicit_invocation: true

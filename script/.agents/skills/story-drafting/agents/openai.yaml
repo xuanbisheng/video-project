@@ -1,0 +1,4 @@
+interface:
+  display_name: "故事成稿"
+  short_description: "把选定创意写成可确认的完整故事成稿。"
+  default_prompt: "使用 $story-drafting 把选定的短片创意写成 03_story.md；确认故事前不要写剧本。"

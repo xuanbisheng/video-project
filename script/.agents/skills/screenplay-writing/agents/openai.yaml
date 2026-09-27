@@ -1,0 +1,4 @@
+interface:
+  display_name: "短片剧本写作"
+  short_description: "使用 Markdown 创作完整且考虑制作条件的短片剧本。"
+  default_prompt: "使用 $screenplay-writing 根据已确认的故事材料创作完整短片剧本。"
