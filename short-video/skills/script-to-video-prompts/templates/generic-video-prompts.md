@@ -17,14 +17,17 @@
 ### 通用镜头执行约束
 
 - 每个镜头必须记录：CONTINUITY_BLOCK_ID、DURATION、PROMPT_DURATION_LIMIT、START_STATE、MOTION_TIMELINE、END_STATE。
+- 每个镜头同时标注 SCENE_ID、BEAT_ID、SHOT_ID；两份视频提示词按这些主键对齐。
 - 如果动作时间线超过 PROMPT_DURATION_LIMIT，或包含多个无法在当前时长完成的主要动作，必须新增后续镜头；后一镜的 START_STATE 直接承接前一镜的 END_STATE。
 - 同一连续镜头块中的短镜头要相邻排列，并复用场景、人物、道具、空间锚点、光线和屏幕方向。
 - 通用正向提示词顺序固定为：主体与动作 → 环境与美术 → 摄影机与镜头 → 灯光 → 色彩与材质 → 情绪 → 连续性约束。
 - 负面提示词只写本镜头真实风险，不用负面词代替动作或场景设计。
 
-### `{{SHOT_ID}}`｜{{SCENE}}｜{{DURATION}} 秒
+### `{{SHOT_ID}}`｜{{SCENE_ID}} / {{BEAT_ID}}｜{{SCENE}}｜{{DURATION}} 秒
 
+- 连续镜头块：`{{CONTINUITY_BLOCK_ID}}`
 - 叙事目的：`{{NARRATIVE_PURPOSE}}`
+- 起始状态 / 动作时间线 / 结束状态：`{{START_STATE}} / {{MOTION_TIMELINE}} / {{END_STATE}}`
 - 景别与机位：`{{SHOT_SIZE_AND_CAMERA}}`
 - 主体与动作：`{{SUBJECT_AND_ACTION}}`
 - 环境与美术：`{{ENVIRONMENT_AND_ART}}`

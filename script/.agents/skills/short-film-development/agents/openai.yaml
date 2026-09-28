@@ -1,4 +1,4 @@
 interface:
   display_name: "短片故事开发"
-  short_description: "把趋势方向转化为原创短片故事方案。"
-  default_prompt: "使用 $short-film-development 将已确认的题材方向转化为原创短片故事方案。"
+  short_description: "把趋势方向转化为目标清晰、可拍且有视觉引擎的原创短片方案。"
+  default_prompt: "使用 $short-film-development 将题材方向转化为 3 个原创短片方案；先锁定主角、目标、动机、阻碍、代价和选择，再说明视觉钩子与制作边界。"

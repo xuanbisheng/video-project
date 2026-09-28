@@ -7,7 +7,7 @@
 ## 项目信息
 
 - 项目：`{{PROJECT_TITLE}}`
-- H3 模式：`T2VA / I2VA / FL2VA / L2VA / Full Reference`
+- H3 模式：`T2VA / I2VA / FL2VA / L2VA / Ref2VA`
 - 画幅 / 帧率：`{{FORMAT}}`
 - 总时长：`{{TOTAL_DURATION}}`
 - 资产引用：`{{ASSET_IDS}}`
@@ -30,10 +30,13 @@ non_diegetic_music: {{NON_DIEGETIC_MUSIC}}
 - 每个 Shot 必须有明确时长、起始状态、按时间顺序的动作和结束状态。
 - 动作时间线超过该 Shot 的可执行时长，或包含多个主要动作时，必须增加后续 Shot；后一 Shot 直接承接前一 Shot 的结束状态。
 - 同一 continuity_block_id 内的短 Shot 相邻排列，并复用 subject_definitions、scene_definition、空间锚点、人物位置、视线、道具状态和光线方向。
-- T2VA / I2VA 使用 integrated_multimodal_description；FL2VA 使用 keyframe_description；L2VA / Full Reference 先定义主体和场景，再写镜头。
+- T2VA / I2VA 使用 integrated_multimodal_description；FL2VA 使用 keyframe_description；L2VA / Ref2VA 按对应模式定义最终画面或主体/场景参考，再写镜头。
 - H3 版不把通用版提示词逐词翻译；只保持镜头编号、时长、剧情动作、起止状态和连续性事实一致。
 
-### `{{SHOT_ID}}`｜{{SCENE}}｜{{DURATION}} 秒
+### `{{SHOT_ID}}`｜{{SCENE_ID}} / {{BEAT_ID}}｜{{SCENE}}｜{{DURATION}} 秒
+
+- 连续镜头块：`{{CONTINUITY_BLOCK_ID}}`
+- 起始状态：`{{START_STATE}}`；动作时间线：`{{ACTION_TIMELINE}}`；结束状态：`{{ENDING_STATE}}`
 
 `[{{SHOT_INDEX}}] {{SUBJECT}}, {{ACTION_TIMELINE}}, {{ENVIRONMENT}}, {{CAMERA}}, {{LIGHTING}}, {{EMOTION}}, {{ENDING_STATE}}`
 
