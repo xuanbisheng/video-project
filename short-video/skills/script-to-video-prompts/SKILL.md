@@ -9,6 +9,8 @@ description: "将影视剧本拆解为连续、可执行的 AI 视频分镜与�
 
 每次完整视频提示词任务默认输出两个独立 Markdown 文件：`generic-video-prompts.md`（模型无关通用版）和 `h3-video-prompts.md`（MiniMax H3 专用版）。两份文件中的场次、镜头编号、人物、动作和时长必须一一对应。
 
+所有输出先调用 `output-packaging`，写入新的 `outputs/<project-slug>/run-<YYYYMMDD-HHmmss>[-<序号>]/` 运行目录。一次执行产生的分镜、视频提示词、资产提示词、执行表和质检记录不得分散到多个目录；不得覆盖历史运行。每个运行目录必须有 `run-manifest.md`。
+
 ## 适用范围
 
 当用户提供完整剧本、分场剧本、单个场景或要求“按剧本出分镜/视频提示词”时使用。不要把它用于单纯的文案润色、静态海报提示词或与剧本无关的自由创作。
@@ -64,3 +66,5 @@ description: "将影视剧本拆解为连续、可执行的 AI 视频分镜与�
 
 - [generic-video-prompts.md](templates/generic-video-prompts.md)：通用视频模型提示词。
 - [h3-video-prompts.md](templates/h3-video-prompts.md)：MiniMax H3 专用提示词。
+
+文件名保持不变，但文件位置以本次运行目录为准；同一剧本的修订或重跑必须使用新的运行目录。

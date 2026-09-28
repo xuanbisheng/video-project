@@ -10,7 +10,8 @@
 接受完整或分场剧本、单场、已有镜头表或局部修改。可选输入包括画幅、帧率、总时长、平台、参考图、首尾帧、动作参考和生成限制。缺少信息时使用保守默认值，并在假设中标记。
 
 ## 工作流
-按顺序编排 Skill，不得跳过剧本事实提取和最终质检：
+按顺序编排 Skill，不得跳过输出打包、剧本事实提取和最终质检：
+0. output-packaging：先创建本次唯一运行目录；本次所有交付文件写入该目录，并生成 `run-manifest.md`。
 1. script-breakdown：提取场次、人物、道具、对白、可见动作和必须传达的信息。
 2. story-beat-mapping：拆分叙事节拍，明确观众需要理解或感受到的变化。
 3. traditional-shot-design：设计景别、机位、构图、镜头类型、运动和节奏。
@@ -40,8 +41,13 @@
 - 推断内容标记为“推断设定”，高影响缺口列入待确认问题。
 
 ## 输出
-ai-storyboard-script.md 面向导演、编剧和剪辑，包含传统分镜、动作时间线、连续性和 AI 生成要求。
-ai-shot-generation-sheet.md 面向 AI 制作和迭代，包含输入、参考资料、运动优先级、风险和 fallback。两份共享 scene_id、beat_id、shot_id 和时长。
+所有输出写入 `outputs/<project-slug>/run-<YYYYMMDD-HHmmss>[-<序号>]/`，不得直接写入项目目录或覆盖旧运行。默认包含：
+
+- `ai-storyboard-script.md`：面向导演、编剧和剪辑，包含传统分镜、动作时间线、连续性和 AI 生成要求。
+- `ai-shot-generation-sheet.md`：面向 AI 制作和迭代，包含输入、参考资料、运动优先级、风险和 fallback。
+- `run-manifest.md`：记录来源、运行时间、文件清单和修订关系。
+
+两份分镜文件共享 `scene_id`、 `beat_id`、 `shot_id` 和时长；如果同一次任务还产出视频或资产提示词，也必须放在同一运行目录。
 
 ## 修改协议
 - 局部修改只改指定维度，并复查前后镜头、轴线、动作接点和首尾状态。
