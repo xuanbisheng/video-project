@@ -25,6 +25,14 @@ non_diegetic_music: {{NON_DIEGETIC_MUSIC}}
 
 ## 单镜头明细
 
+### H3 镜头执行约束
+
+- 每个 Shot 必须有明确时长、起始状态、按时间顺序的动作和结束状态。
+- 动作时间线超过该 Shot 的可执行时长，或包含多个主要动作时，必须增加后续 Shot；后一 Shot 直接承接前一 Shot 的结束状态。
+- 同一 continuity_block_id 内的短 Shot 相邻排列，并复用 subject_definitions、scene_definition、空间锚点、人物位置、视线、道具状态和光线方向。
+- T2VA / I2VA 使用 integrated_multimodal_description；FL2VA 使用 keyframe_description；L2VA / Full Reference 先定义主体和场景，再写镜头。
+- H3 版不把通用版提示词逐词翻译；只保持镜头编号、时长、剧情动作、起止状态和连续性事实一致。
+
 ### `{{SHOT_ID}}`｜{{SCENE}}｜{{DURATION}} 秒
 
 `[{{SHOT_INDEX}}] {{SUBJECT}}, {{ACTION_TIMELINE}}, {{ENVIRONMENT}}, {{CAMERA}}, {{LIGHTING}}, {{EMOTION}}, {{ENDING_STATE}}`
