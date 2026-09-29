@@ -39,13 +39,11 @@
 - 风险：{{RISK_LEVEL_AND_REASON}}
 - 失败时拆镜方案：{{FALLBACK_STRATEGY}}
 
-**通用视频提示词**
+**模型适配事实（内部）**
 
-{{GENERIC_PROMPT}}
-
-**H3 镜头描述**
-
-[{{SHOT_INDEX}}] {{H3_SHOT_DESCRIPTION}}
+- H3 模式：{{H3_MODE}}
+- Seedance 单元：{{UNIT_ID}}
+- 适配备注：{{MODEL_ADAPTATION_NOTES}}
 
 ## 待确认问题
 {{OPEN_QUESTIONS}}

@@ -1,40 +1,32 @@
-# 运行清单
+# 运行清单（内部）
 
 - 项目：{{PROJECT_SLUG}}
 - 运行目录：{{RUN_DIRECTORY}}
 - 运行时间：{{RUN_TIME}}
 - 来源剧本：{{SOURCE_SCRIPT}}
-- 运行状态：{{RUN_STATUS}}（只有三部分均存在且 QA 通过时才可填写“已完成”）
+- 运行状态：{{RUN_STATUS}}
 - 基于运行：{{PARENT_RUN_OR_NONE}}
 - 角色审核状态：{{CHARACTER_REVIEW_STATUS}}
-- 角色审核稿：`character-design-review.md`
+- 角色审核稿：_internal/character-design-gate.md
 - 用户审核决定 / 时间：{{CHARACTER_REVIEW_DECISION}} / {{CHARACTER_REVIEW_TIME}}
 
-
-## 审核门产物
+## 最终交付
 
 | 文件 | 状态 | 说明 |
 |---|---|---|
-| `character-design-review.md` | {{CHARACTER_REVIEW_STATUS}} | 角色设计审核稿；确认前阻断下游流程 |
+| final/01-character-design.md | {{CHARACTER_STATUS}} | 已确认角色设计 |
+| final/02-asset-library.md | {{ASSET_LIBRARY_STATUS}} | 角色、场景、道具资产库 |
+| final/03-midjourney-prompts.md | {{ASSET_MJ_STATUS}} | Midjourney 资产提示词 |
+| final/04-storyboard.md | {{STORYBOARD_STATUS}} | 剧本分镜与镜头事实 |
+| final/05-video-prompts-h3.md | {{VIDEO_H3_STATUS}} | MiniMax H3 视频提示词 |
+| final/06-video-prompts-seedance.md | {{VIDEO_SEEDANCE_STATUS}} | Seedance 视频提示词 |
 
-## 三部分交付
+## 内部检查
 
-| 部分 | 文件 | 状态 | 说明 |
-|---|---|---|---|
-| 资产库 | `generic-image-prompts.md` | {{ASSET_GENERIC_STATUS}} | 通用生图资产提示词 |
-| 资产库 | `midjourney-prompts.md` | {{ASSET_MJ_STATUS}} | Midjourney 资产提示词 |
-| 分镜剧本 | `ai-storyboard-script.md` | {{STORYBOARD_STATUS}} | 按故事顺序的分镜脚本 |
-| 分镜剧本 | `ai-shot-generation-sheet.md` | {{SHOT_SHEET_STATUS}} | 需要执行表时使用 |
-| 视频提示词 | `generic-video-prompts.md` | {{VIDEO_GENERIC_STATUS}} | 模型无关视频提示词 |
-| 视频提示词 | `h3-video-prompts.md` | {{VIDEO_H3_STATUS}} | MiniMax H3 视频提示词 |
-
-## 其他文件
-
-{{OTHER_FILES}}
-
-## 质量检查
-
-- 三部分是否都在同一运行目录：{{ALL_IN_ONE_RUN_DIRECTORY}}
-- 资产 ID 是否在资产库与分镜/提示词中一致：{{ASSET_ID_CHECK}}
-- 分镜与两份视频提示词的镜头主键、时长、动作和起止状态是否一致：{{SHOT_CONSISTENCY_CHECK}}
+- ID 一致性：{{ID_CHECK}}
+- 角色锁定项未漂移：{{CHARACTER_LOCK_CHECK}}
+- 镜头起止状态可衔接：{{STATE_CHAIN_CHECK}}
+- H3 / Seedance 与分镜一致：{{ADAPTER_CHECK}}
+- Midjourney 参数位置正确：{{MJ_CHECK}}
+- 未生成通用资产、通用视频或豆包文件：{{EXCLUDED_OUTPUT_CHECK}}
 - 未生成项及原因：{{MISSING_ITEMS}}

@@ -1,13 +1,13 @@
 # Asset Schema
 
-两份输出文件必须共享同一套资产字段，避免通用版和 Midjourney 版出现设定漂移。
+资产库与 Midjourney 提示词必须共享同一套资产字段，避免资产卡与提示词出现设定漂移。
 
 ## 项目级字段
 
 - `project_title`：项目名。
 - `source_scope`：来自完整剧本、某一场或已有资产设定。
 - `render_intent`：设定图、概念图、宣传图、图生图参考或视频连续性参考。
-- `target_model`：通用版模型范围；Midjourney 版默认 `V8.2`。
+- `target_model`：Midjourney 版本与生成模式；未指定时按项目当前默认版本。
 - `global_style`：时代、类型、写实/风格化、材质与色彩总纲。
 
 ## 资产级字段
@@ -30,6 +30,21 @@ parameters：比例、版本、风格强度、参考图等参数
 risk_notes：模型可能出错的地方
 ```
 
+## 角色资产继承字段
+
+当 asset_type 为 character 时，必须从已确认的角色设计继承以下字段，不得重新推断：
+
+- external_persona：外在人设
+- personality_primary / personality_secondary：主性格和副性格
+- signature_line_or_action：口头禅、固定语气或标志性动作
+- costume：服装与状态变化
+- jewelry_and_accessories：身份配饰与动作配饰
+- key_props：关键道具
+- micro_performance / movement_rhythm：微表情和动作节奏
+- locked_features / variable_features：角色连续性锁定项和可变项
+
+角色资产提示词可以把性格转译成姿态、视线、表情和动作，但不能新增角色未确认的核心外观、服装或配饰。
+
 ## 角色展示建议
 
 - `CHAR_001_turnaround`：按需制作的角色多角度设定图，例如中性背景正面、侧面、背面；仅在用户要求或外观审阅需要时生成，不是 H3 前置资产。
@@ -47,3 +62,5 @@ risk_notes：模型可能出错的地方
 - `ENV_001_establishing`：空间全貌、主要入口、纵深和动线。
 - `ENV_001_day` / `ENV_001_night`：同一空间不同时间/光线版本。
 - `ENV_001_key_view`：为视频镜头提供固定机位、视线和主光方向。
+
+

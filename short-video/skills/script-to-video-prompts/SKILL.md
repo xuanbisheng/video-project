@@ -1,85 +1,40 @@
 ---
 name: script-to-video-prompts
-description: "将影视剧本拆解为连续、可执行的 AI 视频分镜与生成提示词，适用于短片、广告和剧情视频。"
+description: "将影视剧本拆解为稳定的节拍、视频单元和镜头事实，供 H3 与 Seedance 适配器生成提示词。"
 ---
 
 # Script To Video Prompts
 
-把用户提供的剧本转成可供导演审核、可供视频模型生成的提示词包。这个 Skill 负责流程、字段和质检；调用它的 Agent 负责在不改变剧情的前提下做导演、摄影、美术和灯光决策。
+这是上游事实和流程 Skill，不直接创建平台专属提示词。它把剧本转换为 scene、beat、unit 和 shot 的统一结构，再交给 shot-planning、h3-adapter 和 seedance-adapter。
 
-每次完整视频提示词任务默认输出两个独立 Markdown 文件：`generic-video-prompts.md`（模型无关通用版）和 `h3-video-prompts.md`（MiniMax H3 专用版）。两份文件中的场次、镜头编号、人物、动作和时长必须一一对应。
+## 唯一审核闸门
 
-所有输出先调用 `output-packaging`，写入新的 `outputs/<project-slug>/run-<YYYYMMDD-HHmmss>[-<序号>]/` 运行目录。一次执行产生的分镜、视频提示词、资产提示词、执行表和质检记录不得分散到多个目录；不得覆盖历史运行。每个运行目录必须有 `run-manifest.md`。
+角色设计是唯一人工暂停点：解析剧本后调用 character-design-review，状态为“待角色审核”；只有用户明确确认后才继续。确认后的角色核心特征不得被下游改写。
 
-## 适用范围
+## 自动流程
 
-当用户提供完整剧本、分场剧本、单个场景或要求“按剧本出分镜/视频提示词”时使用。不要把它用于单纯的文案润色、静态海报提示词或与剧本无关的自由创作。
+1. 提取场次、时间、地点、人物、动作、对白、道具、情绪和转场意图。
+2. 检查目标、动机、阻碍、转折、选择、代价和情绪落点；不清晰处记录内部风险，不擅自补写。
+3. 角色确认后建立视觉总纲、资产关系、SCENE_*、BEAT_* 和 UNIT_*。
+4. 调用 shot-planning 完成景别、机位、构图、走位、灯光、声音、起止状态和 AI 可生成性规划。
+5. 调用 h3-adapter 和 seedance-adapter，分别生成 H3 与 Seedance 提示词。
+6. 调用 continuity-and-export，检查并导出最终主文件。
 
-## 默认约定
+## 统一约束
 
-- 默认输出中文制作说明 + 英文视频模型提示词。
-- 默认同时输出通用视频提示词与 H3 专用视频提示词两个 Markdown 文件。
-- 默认 16:9、24fps、单镜头 4-8 秒；用户指定的比例、帧率、时长和模型优先。
-- 每个镜头必须有时长预算；动作预计超过提示词可执行时长时，必须增加后续分镜，不得把多个主要动作压进一个镜头。
-- 连续几镜若场景、时间、人物和关键道具一致，使用同一 continuity_block_id 并相邻排列，锁定人物位置、视线、道具状态、光线和转场。
-- 默认先交付完整项目包；输出呈现范围可以切换为逐场景、逐镜头或 JSON/CSV，但运行目录仍必须保留资产库、分镜剧本、视频提示词三部分及 `run-manifest.md`。
-- 不擅自添加剧情、人物关系或关键道具。推断内容必须标记为“推断设定”。
-- 先建立项目级连续性圣经，再写镜头提示词。
-- 每次面向用户的项目产出都调用 `asset-prompt-pack`，并在同一运行目录交付资产库（通用生图与 Midjourney 两份文件）、分镜剧本和视频提示词三部分；即使用户只点名其中一部分，也不得省略另外两部分。若真实阻塞导致缺少内容，运行状态必须标记为未完成，不能用空壳文件代替。镜头提示词引用稳定资产 ID。
-
-## 工作流
-
-1. 解析剧本：提取场次、时间、地点、人物、动作、对白、情绪、道具和转场意图；输出一句话故事。
-2. 检查故事可拍性：确认人物目标、动机、阻碍、转折、关键选择、代价和情绪落点；因果不清时标记问题，不擅自补写。
-3. 角色设计审核：调用 `character-design-review`，生成 `character-design-review.md`，等待用户明确确认；未确认不得生成资产库、分镜或视频提示词。
-4. 建立视觉总纲与连续性圣经：仅使用已确认的角色设定锁定人物、服装、道具、场景空间、天气、光线与色彩，并建立资产 ID。
-5. 拆分视频单元与镜头：长项目按不超过 15 秒的单元组织，每个单元一个主要地点和动作/情绪变化，写起始状态、结束状态和下一条衔接。每个单元通常规划 2-4 个镜头任务。
-6. 规划镜头：先定义剧情任务与信息释放顺序，再决定景别、机位、焦段、构图、运动、灯光、声音和剪辑点。
-7. 生成提示词：通用版按主体与动作、环境与美术、摄影机与镜头、灯光、色彩与材质、情绪、连续性组织；H3 版按模式选择官方字段；Seedance 版按中文视频单元规则组织。
-8. 时长与拆镜检查：检查动作时间线是否落在镜头时长内；超出时长、包含多个主要动作或无法完成的镜头，拆成连续分镜并传递前镜结束状态。
-9. 检查衔接：核对动作方向、视线、光线方向、道具位置、角色外观、人物位置、连续镜头块和前后镜头剪辑关系。
-10. 交付并标注风险：列出默认假设、待确认问题、模型限制和需要参考图/首帧的镜头。
-
-复杂项目按 [multi-agent-workflow.md](references/multi-agent-workflow.md) 的职责阶段执行；单 Agent 也必须依次完成各阶段。
-
-## 输出要求
-
-完整交付必须包含三部分：
-角色审核阶段先交付 `character-design-review.md`，运行状态为 `待角色审核`；用户确认后才进入三部分完整交付。审核稿中的 CHAR_* ID 必须与资产库、分镜和视频提示词一致。
-
-1. 资产库：通用生图资产提示词 `generic-image-prompts.md` 与 Midjourney 资产提示词 `midjourney-prompts.md`。
-2. 分镜剧本：`ai-storyboard-script.md`，需要执行表时包含 `ai-shot-generation-sheet.md`。
-3. 视频提示词：`generic-video-prompts.md` 与 `h3-video-prompts.md`，以及用户指定的其他模型版本。
-同时保留剧本解析与故事节拍、项目视觉总纲、角色连续性圣经、场景/道具设定、分场分镜表、负面提示词、声音建议、镜头衔接、参数建议和待确认问题；资产提示词分文件输出，逐镜头字段遵循 [prompt-schema.md](references/prompt-schema.md)。
-
-## 写作与修改规则
-
-- 提示词按“主体与动作 → 环境 → 摄影 → 灯光 → 色彩/材质 → 情绪 → 连续性约束”组织。
-- 每个镜头明确主体、动作起止、时长和运动速度；避免在一个镜头塞入多个不可控动作。
-- 如果动作预计超过当前时长预算，增加镜头编号；后一镜的起始状态必须承接前一镜的结束状态。
-- 同一连续镜头块内复用场景、人物和关键道具锚点，短镜头相邻输出，不重复改变人物位置和空间设定。
-- 只修改用户指定的维度；例如用户要求改灯光时，保留动作、构图、服装和镜头运动。
-- 用户要求换模型时，保留视觉意图，只调整模型需要的表达和参数，并说明适配假设。
-- 用户指定 H3 或未指定模型时，读取 [h3-prompt-guide.md](references/h3-prompt-guide.md)，按 H3 的多模态描述结构生成第二份文件；不要把 H3 字段混入通用版。
-- 剧本信息不足但不影响生成时使用保守默认值；影响角色身份、空间关系、叙事因果或安全边界时先提出问题。
+- 每个镜头共享 scene_id、beat_id、unit_id、shot_id、duration、start_state、motion_timeline 和 end_state。
+- 每镜一个主要动作和一个主要摄影机动作；超出时长或动作预算时拆镜并传递结束状态。
+- 同一场景不自动合并；只有连续动作链、主体关系和光线状态都成立时才合并为同一 UNIT_*。
+- H3 不要求角色三视图；Seedance 重点保留连续单元和起止状态。
+- 本项目只输出 H3 和 Seedance 视频提示词，不生成 generic-video-prompts.md 或豆包版本。
 
 ## 参考资料路由
 
-- 需要逐镜头字段或机器可读结构时，读取 [prompt-schema.md](references/prompt-schema.md)。
-- 需要设计景别、焦段、运动和时长时，读取 [shot-design-guide.md](references/shot-design-guide.md)。
-- 需要建立或更新项目连续性时，读取 [continuity-bible.md](references/continuity-bible.md)。
-- 需要生成角色审核稿和审核门时，读取 `skills/character-design-review/SKILL.md` 及其模板。
-- 用户指定模型时，读取 [model-presets.md](references/model-presets.md)。
-- 需要 H3 结构、参考模式或音频字段时，读取 [h3-prompt-guide.md](references/h3-prompt-guide.md)。
-- 需要剧作可拍性判断时，读取 [story-analysis.md](references/story-analysis.md)。
-- 需要微表情、对白、配音和声音层次时，读取 [performance-and-sound.md](references/performance-and-sound.md)。
-- 需要镜头任务、构图、光影、剪辑或关键帧时，读取 [cinematography-and-editing.md](references/cinematography-and-editing.md)。
-- 用户指定 Seedance 2.0 时，读取 [seedance-guide.md](references/seedance-guide.md)。
-- 交付前读取 [quality-checklist.md](references/quality-checklist.md)。
+- 镜头字段：references/prompt-schema.md
+- H3：references/h3-prompt-guide.md
+- Seedance：references/seedance-guide.md
+- 连续性：references/continuity-bible.md
+- 声音和对白：references/performance-and-sound.md
+- 质量检查：references/quality-checklist.md
 
-## 视频输出文件
 
-- [generic-video-prompts.md](templates/generic-video-prompts.md)：通用视频模型提示词。
-- [h3-video-prompts.md](templates/h3-video-prompts.md)：MiniMax H3 专用提示词。
-
-文件名保持不变，但文件位置以本次运行目录为准；同一剧本的修订或重跑必须使用新的运行目录。
