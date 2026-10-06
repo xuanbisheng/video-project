@@ -1,0 +1,238 @@
+资产库流程：
+1.寻找参考素材（选做）
+2.图生图，放大画风权重，按照需求调整画风参数
+3.利用其他模型来制作系列图片
+
+《穿成猫后，我当主播了》MJ资产提示词库
+一、生产顺序
+第一批：不使用角色参考
+先生成：
+1. 包子主视觉
+2. 女主人主视觉
+3. 住宅空间主视觉
+4. 核心道具
+从每一类中选择一张最准确的图片作为锁定参考。
+第二批：使用角色参考
+锁定主视觉后，再生成：
+1. 包子不同角度
+2. 包子主播造型
+3. 包子普通猫状态
+4. 包子表情与动作
+5. 女主人不同状态
+6. 场景不同机位
+7. 剧情关键帧
+
+---
+二、包子主视觉资产
+CH01-01｜包子全身主视觉
+第一张包子主视觉暂时不使用角色参考。
+single adult ragdoll cat character named Baozi, full body, three-quarter front view, realistic feline anatomy, cream-white long fur, soft light-gray color-point mask and ears, bright sapphire-blue eyes, round face, small pink nose, fluffy chest, large plume tail, naturally aloof but adorable expression, standing on all four paws in a neutral pose, subtle human-like intelligence without a humanoid body, realistic pet comedy character design, soft natural side daylight, gentle warm fill light, clean light-gray studio background, clear readable silhouette, highly detailed natural fur --ar 2:3 --raw --s 100 --c 5 --p [MOODBOARD_CODE] --no human body human hands bipedal anatomy clothes text watermark extra limbs extra tail
+CH01-02｜包子正面主视觉
+single adult ragdoll cat character named Baozi, full body front view, standing naturally on all four paws, cream-white long fur, symmetrical soft light-gray color-point mask and ears, bright sapphire-blue eyes, round face, small pink nose, fluffy chest, large plume tail resting behind the body, calm aloof expression, realistic feline anatomy, clean character reference, soft natural side daylight, neutral light-gray studio background, realistic detailed fur --ar 2:3 --raw --s 80 --c 3 --p [MOODBOARD_CODE] --no human body human hands bipedal anatomy clothes text watermark extra limbs extra tail
+CH01-03｜包子头部主视觉
+close-up portrait of a single adult ragdoll cat named Baozi, centered front-facing head and shoulders, cream-white long fur, symmetrical soft light-gray color-point mask, light-gray ears, bright sapphire-blue eyes, round face, small pink nose, dense fluffy cheek fur, naturally aloof and intelligent expression, realistic feline facial anatomy, soft natural side daylight, gentle warm fill light, clean neutral background, highly detailed realistic fur and whiskers --ar 1:1 --raw --s 100 --c 3 --p [MOODBOARD_CODE] --no human face clothing text watermark distorted eyes extra ears
+包子主视觉选择标准
+最终只能锁定一张主视觉。
+需要检查：
+- 面部重点色是否左右基本对称
+- 蓝色眼睛是否自然
+- 面部是否圆润
+- 毛发是否真实
+- 尾巴是否只有一条
+- 四肢是否正常
+- 身体是否保持真实猫咪结构
+- 是否同时具有高冷和可爱的感觉
+锁定以后，将图片地址替换为：
+[BAOZI_URL]
+
+---
+三、包子基础角度资产
+以下提示词开始使用包子锁定图作为Omni Reference。
+CH01-04｜包子左侧面
+single adult ragdoll cat Baozi, full body strict left-side profile, standing naturally on all four paws, neutral pose, entire body and plume tail visible, preserve the exact facial markings, cream-white long fur, light-gray ears, sapphire-blue eyes and body proportions from the reference image, realistic feline anatomy, clean character reference photography, soft even daylight, neutral light-gray background --ar 3:2 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 80 --no human body human hands clothing text watermark extra limbs extra tail
+CH01-05｜包子右侧面
+single adult ragdoll cat Baozi, full body strict right-side profile, standing naturally on all four paws, neutral pose, entire body and plume tail visible, preserve the exact facial markings, cream-white long fur, light-gray ears, sapphire-blue eyes and body proportions from the reference image, realistic feline anatomy, clean character reference photography, soft even daylight, neutral light-gray background --ar 3:2 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 80 --no human body human hands clothing text watermark extra limbs extra tail
+CH01-06｜包子背面
+single adult ragdoll cat Baozi, full body back view, standing naturally on all four paws, head slightly turned so one light-gray cheek and one sapphire-blue eye are visible, large plume tail resting naturally, preserve the exact cream-white fur pattern and body proportions from the reference image, realistic feline anatomy, clean character reference photography, soft even daylight, neutral light-gray background --ar 2:3 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 80 --no human body human hands clothing text watermark extra limbs extra tail
+CH01-07｜包子四分之三侧面
+single adult ragdoll cat Baozi, full body three-quarter side view, standing naturally on all four paws, head looking toward the camera, preserve the exact facial markings, sapphire-blue eyes, cream-white long fur, light-gray ears, fluffy chest and large plume tail from the reference image, realistic feline anatomy, clean character reference photography, soft natural side daylight, neutral light-gray background --ar 2:3 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 80 --no human body human hands clothing text watermark extra limbs extra tail
+这些角度只能作为设计参考，不应把MJ生成的多视图当成完全准确的建模三视图。
+
+---
+四、包子主播造型资产
+CH01-08｜主播标准造型
+single adult ragdoll cat Baozi, full body three-quarter front view, wearing a simple bright-red cotton sports headband and a tiny black wireless microphone clipped below the neck fur, standing naturally on all four paws behind a small table, facing a smartphone camera with a confident challenge-video host expression, preserve the exact face, fur markings, sapphire-blue eyes, body proportions and plume tail from the reference image, realistic feline anatomy, subtle human-like behavior without a humanoid body, realistic social-media pet comedy, soft natural side daylight, clean neutral background --ar 2:3 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands bipedal anatomy jacket pants text watermark extra limbs extra tail
+CH01-09｜包子对镜头喊口号
+adult ragdoll cat Baozi wearing a bright-red sports headband and tiny black wireless microphone, positioned behind a small table, both front paws firmly placed on the tabletop, chest raised, mouth open mid-shout, intense confident eyes looking directly into a vertically mounted smartphone camera, energetic challenge-video host posture, preserve the exact face, cream-white long fur, light-gray facial markings, sapphire-blue eyes and feline body proportions from the reference image, low camera angle, realistic pet comedy, soft natural daylight, clean warm apartment background --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands bipedal anatomy text subtitles watermark extra limbs extra tail
+CH01-10｜包子举起挑战牌
+挑战牌上的文字后期添加，MJ只负责生成空白牌。
+adult ragdoll cat Baozi wearing a bright-red sports headband and tiny wireless microphone, sitting upright behind a home kitchen counter, holding up a small blank white challenge card between both front paws, proudly presenting it toward a smartphone camera, confident aloof expression, preserve the exact face, fur markings, sapphire-blue eyes and feline anatomy from the reference image, realistic short-form pet comedy, warm modern apartment, soft natural side daylight, clear vertical composition with empty space above the card --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands printed words letters logo watermark extra limbs extra tail
+CH01-11｜包子架设手机
+adult ragdoll cat Baozi wearing a bright-red sports headband, using one front paw to adjust a vertically mounted smartphone on a small tabletop tripod, focused professional expression, realistic feline body leaning slightly forward while remaining on all four paws, preserve the exact face, cream-white long fur, light-gray markings, sapphire-blue eyes and body proportions from the reference image, cozy modern apartment kitchen, warm wood counter, soft daylight from the left, realistic pet comedy --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands text watermark extra limbs extra tail
+
+---
+五、包子普通猫状态
+CH01-12｜猫窝装乖
+adult ragdoll cat Baozi curled neatly inside a soft cream-colored cat bed beside a modern sofa, paws tucked beneath the chest, bright sapphire-blue eyes looking innocently toward the camera, calm harmless pet expression, no headband and no microphone visible, preserve the exact face, fur markings, cream-white long fur and body proportions from the reference image, realistic feline anatomy, cozy warm apartment, soft natural daylight, realistic lifestyle pet photography --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human behavior human body clothing text watermark extra limbs extra tail
+CH01-13｜尾巴藏发带
+adult ragdoll cat Baozi lying innocently in a cream-colored cat bed, looking calmly toward the apartment entrance while the large fluffy tail discreetly covers a partially visible bright-red sports headband behind the body, preserve the exact face, sapphire-blue eyes, cream-white fur, light-gray markings and feline proportions from the reference image, realistic subtle comedy, cozy modern living room, soft natural side daylight, close medium shot --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands text watermark extra limbs extra tail
+CH01-14｜无辜喵叫
+close-up portrait of adult ragdoll cat Baozi sitting naturally, sapphire-blue eyes wide and innocent, ears relaxed, mouth slightly open during a soft meow, preserve the exact facial markings, round face, cream-white long fur and light-gray ears from the reference image, realistic feline expression, soft natural daylight, shallow depth of field, warm apartment background --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 300 --p [MOODBOARD_CODE] --raw --s 80 --no human expression clothing text watermark distorted mouth extra ears
+
+---
+六、包子表情资产
+CH01-15｜主播自信
+close-up portrait of adult ragdoll cat Baozi wearing a bright-red sports headband, head slightly raised, sapphire-blue eyes looking directly into the camera, calm confident challenge-video host expression, preserve the exact facial markings and long fur from the reference image, realistic feline anatomy, soft natural side daylight, clean neutral background --ar 1:1 --v 7 --oref [BAOZI_URL] --ow 300 --p [MOODBOARD_CODE] --raw --s 80 --no human face text watermark distorted eyes
+CH01-16｜翻车震惊
+close-up portrait of adult ragdoll cat Baozi wearing a bright-red sports headband, sapphire-blue eyes widened, ears upright, whiskers pushed forward, mouth slightly open, shocked after an unexpected accident, preserve the exact facial markings and realistic feline anatomy from the reference image, small drops of milk foam on the cheek fur, soft natural daylight, clean background --ar 1:1 --v 7 --oref [BAOZI_URL] --ow 300 --p [MOODBOARD_CODE] --raw --s 80 --no human face text watermark distorted eyes
+CH01-17｜嘴硬镇定
+close-up portrait of adult ragdoll cat Baozi wearing a bright-red sports headband, face partly covered with white milk foam, maintaining a serious aloof expression as if nothing went wrong, sapphire-blue eyes looking straight into the camera, preserve the exact face and fur markings from the reference image, realistic deadpan pet comedy, soft natural daylight --ar 1:1 --v 7 --oref [BAOZI_URL] --ow 300 --p [MOODBOARD_CODE] --raw --s 80 --no human face text watermark distorted eyes
+CH01-18｜挑战成功得意
+close-up portrait of adult ragdoll cat Baozi wearing a bright-red sports headband, eyes slightly narrowed, chin raised, proud self-satisfied expression after completing a challenge, preserve the exact facial markings, sapphire-blue eyes and realistic long fur from the reference image, soft natural daylight, clean warm background --ar 1:1 --v 7 --oref [BAOZI_URL] --ow 300 --p [MOODBOARD_CODE] --raw --s 80 --no human face text watermark distorted eyes
+CH01-19｜听见主人回家
+close-up portrait of adult ragdoll cat Baozi wearing a bright-red sports headband, body suddenly frozen, both ears sharply turned toward an off-screen doorway, sapphire-blue eyes looking sideways with alarm, preserve the exact face, fur markings and realistic feline anatomy from the reference image, soft daylight, shallow depth of field, warm apartment background --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 300 --p [MOODBOARD_CODE] --raw --s 80 --no human face text watermark distorted eyes
+
+---
+七、女主人主视觉资产
+女主人第一张主视觉不使用Omni Reference。
+CH02-01｜女主人全身主视觉
+single young Chinese woman, full body three-quarter front view, natural long black hair, warm oval face, clear natural skin, gentle dark-brown eyes, light everyday makeup, cream knit top, light-blue straight-leg jeans, simple white sneakers, relaxed modern apartment resident, warm and approachable expression, realistic lifestyle photography, soft natural side daylight, clean neutral studio background, clear silhouette --ar 2:3 --raw --s 100 --c 5 --p [MOODBOARD_CODE] --no text logo watermark extra limbs
+[图片]
+CH02-02｜女主人面部主视觉
+close-up portrait of a young Chinese woman, natural long black hair, warm oval face, gentle dark-brown eyes, clear natural skin, light everyday makeup, calm affectionate expression, realistic lifestyle photography, soft natural side daylight, clean neutral background --ar 1:1 --raw --s 100 --c 3 --p [MOODBOARD_CODE] --no text logo watermark distorted face
+选择最终女主人图片后，将地址替换为：
+[OWNER_URL]
+
+---
+八、女主人状态资产
+CH02-03｜抱着包子刷短视频
+这一张同时出现两名角色。优先锁定女主人，将包子作为场景内容描述；如果包子偏差明显，后续使用编辑或合成处理。
+young Chinese woman sitting comfortably on a soft beige sofa, wearing a cream knit top and light-blue jeans, holding an adult cream-white ragdoll cat on her lap while watching short-form challenge videos on a smartphone, warm relaxed smile, cozy modern apartment living room, warm wood and cream color palette, soft natural daylight from the left, realistic lifestyle photography, vertical composition, preserve the exact woman's face, hair and clothing from the reference image --ar 9:16 --v 7 --oref [OWNER_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no visible phone text logo watermark extra limbs
+CH02-04｜女主人准备出门
+young Chinese woman standing near the apartment entrance, wearing a cream knit top, light-blue jeans and simple white sneakers, carrying a small tan shoulder bag, one hand holding keys, turning back toward the living room with a gentle smile, cozy modern apartment entrance, soft natural daylight, preserve the exact face, hair, body proportions and clothing from the reference image, realistic lifestyle photography --ar 9:16 --v 7 --oref [OWNER_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no text logo watermark extra limbs
+CH02-05｜女主人开门回家
+young Chinese woman opening the apartment entrance door and stepping inside, holding keys in one hand and a small tan shoulder bag, pleasantly calling toward the living room, natural relaxed expression, preserve the exact face, long black hair, cream knit top and light-blue jeans from the reference image, cozy warm apartment entrance, soft daylight from inside the home, realistic lifestyle photography, vertical composition --ar 9:16 --v 7 --oref [OWNER_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no text logo watermark extra limbs
+CH02-06｜发现厨房异常
+young Chinese woman standing between the living room and open kitchen, looking at a messy coffee counter with a puzzled expression, one eyebrow slightly raised, keys still in one hand, preserve the exact face, hair, cream knit top and light-blue jeans from the reference image, cozy modern apartment, soft natural side daylight, realistic lifestyle photography, medium shot, vertical composition --ar 9:16 --v 7 --oref [OWNER_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no text logo watermark extra limbs
+
+---
+九、住宅场景主视觉资产
+场景资产不放角色，先锁定空间。
+SC01｜开放式住宅总空间
+coherent cozy modern apartment interior designed for a young Chinese woman and her ragdoll cat, connected entrance, living room and open kitchen visible in one space, cream-white and warm wood color palette, soft beige sofa, small cream cat bed beside the sofa, compact coffee station on the open-kitchen counter, realistic lived-in details without clutter, clear walking path from the kitchen to the cat bed and from the entrance to the living room, large window on the left, soft natural daylight entering from the left, gentle warm indoor fill light, realistic lifestyle interior photography, no people, no animals --ar 16:9 --raw --s 100 --c 5 --p [MOODBOARD_CODE] --no text logo watermark fisheye distortion
+锁定后将图片地址替换为：
+[SCENE_URL]
+SC02｜竖屏住宅总空间
+vertical view of a cozy modern apartment connecting a small entrance, living room and open kitchen, cream-white walls, warm wood floor and counter, soft beige sofa, cream cat bed beside the sofa, compact home coffee station visible in the background, realistic lived-in young woman's home, clear pathway through the space, soft natural daylight from the left, gentle warm indoor fill light, realistic lifestyle interior photography, no people, no animals --ar 9:16 --raw --s 100 --c 5 --p [MOODBOARD_CODE] --no text logo watermark fisheye distortion
+
+---
+十、场景分区资产
+SC03｜客厅正面
+front view of a cozy modern apartment living room, soft beige sofa centered against a warm neutral wall, small cream-colored cat bed positioned to the right of the sofa, light wood coffee table, a few realistic personal items, warm wood floor, soft natural daylight entering from the left, gentle indoor fill light, realistic lifestyle interior photography, clean vertical composition, no people, no animals --ar 9:16 --raw --s 100 --p [MOODBOARD_CODE] --no text logo watermark
+SC04｜开放式厨房正面
+front-facing view of a compact open kitchen coffee station in a cozy modern apartment, warm wood counter, stainless steel espresso machine on the right, empty working space in the center, milk bottle and stainless steel milk pitcher on the left, vertical smartphone tripod facing the counter, cream-white cabinets, soft natural daylight from the left, realistic lifestyle interior photography, clear vertical composition, no people, no animals --ar 9:16 --raw --s 100 --p [MOODBOARD_CODE] --no visible text logo watermark clutter
+SC05｜开放式厨房侧面
+three-quarter side view of a compact open-kitchen coffee station, stainless steel espresso machine, warm wood counter, white ceramic latte cup, milk pitcher and smartphone tripod, connected living room visible in the background, cream cat bed beside the sofa, clear path from the kitchen to the living room, soft natural daylight from the left, realistic lifestyle interior photography, no people, no animals --ar 9:16 --raw --s 100 --p [MOODBOARD_CODE] --no visible text logo watermark clutter
+SC06｜住宅玄关
+interior view of a cozy modern apartment entrance, front door opening toward the connected living room, small shoe cabinet, wall hooks, warm wood floor, cream-white walls, soft natural daylight coming from the living room, realistic lived-in details, clear visual path toward the open kitchen, realistic lifestyle interior photography, no people, no animals --ar 9:16 --raw --s 100 --p [MOODBOARD_CODE] --no text logo watermark
+SC07｜猫窝区域
+small cream-colored cat bed beside a soft beige sofa in a cozy modern apartment living room, warm wood floor, one neutral cushion, open kitchen softly visible in the distant background, soft natural side daylight, gentle warm indoor fill light, realistic lifestyle pet photography, clean vertical composition, no people, no animals --ar 9:16 --raw --s 100 --p [MOODBOARD_CODE] --no text logo watermark
+
+---
+十一、核心道具资产
+核心道具先单独生成，再用于场景和关键帧。
+PR01｜红色运动发带
+single small bright-red cotton sports headband designed to fit an adult ragdoll cat, simple elastic loop, soft woven fabric, no logo, three-quarter front view, centered, isolated on a clean light-gray background, even soft lighting, realistic prop design reference --ar 1:1 --raw --s 50 --p [MOODBOARD_CODE] --no text logo watermark animal person
+PR02｜手机与桌面支架
+single modern black smartphone mounted vertically on a compact black tabletop tripod, screen facing forward, simple stable design for short-form video recording, three-quarter front view, centered, isolated on a clean light-gray background, even soft lighting, realistic product reference --ar 1:1 --raw --s 50 --p [MOODBOARD_CODE] --no visible text logo watermark person animal
+PR03｜家用咖啡机
+single compact stainless steel home espresso machine, simple modern design, one steam wand, one portafilter, rounded rectangular body, realistic proportions, three-quarter front view, centered, isolated on a clean light-gray background, even soft lighting, realistic product design reference --ar 1:1 --raw --s 50 --p [MOODBOARD_CODE] --no brand logo text watermark person animal
+PR04｜白色拉花杯
+single white ceramic latte cup with a low wide rim, small rounded handle and matching white saucer, simple modern home coffee design, glossy ceramic material, three-quarter front view, centered, isolated on a clean light-gray background, even soft lighting, realistic product reference --ar 1:1 --raw --s 50 --p [MOODBOARD_CODE] --no text logo watermark person animal
+PR05｜不锈钢拉花缸
+single stainless steel milk frothing pitcher with a narrow pouring spout and rounded handle, polished but not mirror-like metal, realistic home barista size, three-quarter front view, centered, isolated on a clean light-gray background, even soft lighting, realistic product reference --ar 1:1 --raw --s 50 --p [MOODBOARD_CODE] --no text logo watermark person animal
+PR06｜挑战牌
+文字后期添加。
+single blank white rectangular challenge card with a thick bright-red border and a small red paw-print icon in one corner, no words, clean bold short-form video graphic style, front-facing view, centered, isolated on a light-gray background, even lighting --ar 4:3 --raw --s 50 --p [MOODBOARD_CODE] --no letters numbers words logo watermark person animal
+
+---
+十二、剧情关键帧提示词
+关键帧必须等包子、女主人和场景全部锁定后再生成。
+KF01｜包子开场高喊口号
+adult ragdoll cat Baozi wearing a bright-red sports headband and tiny black wireless microphone, standing behind a warm wood kitchen counter with both front paws firmly on the tabletop, mouth open mid-shout, intense confident eyes looking directly into a vertically mounted smartphone camera, stainless steel espresso machine behind him, low camera angle making the cat look like a bold challenge-video host, cozy modern apartment kitchen, soft natural daylight from the left, realistic feline anatomy, subtle human-like behavior, realistic pet comedy, preserve Baozi's exact identity from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands text subtitles watermark extra limbs extra tail
+KF02｜包子宣布第一项挑战
+adult ragdoll cat Baozi wearing a bright-red sports headband, sitting upright behind the home coffee counter and holding a blank white challenge card with a red border between both front paws, proudly presenting the card toward a vertical smartphone camera, stainless steel espresso machine and white latte cup arranged behind him, confident aloof expression, cozy modern apartment kitchen, soft natural daylight from the left, realistic feline anatomy, preserve Baozi's exact identity from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands printed words letters numbers watermark extra limbs extra tail
+KF03｜第一次操作咖啡机
+adult ragdoll cat Baozi wearing a bright-red sports headband, leaning toward a compact stainless steel espresso machine and carefully pressing one large control button with a front paw, focused professional expression, white ceramic latte cup placed beneath the coffee outlet, smartphone tripod recording from the front, cozy open kitchen, soft natural daylight from the left, realistic feline anatomy, preserve Baozi's exact face, fur markings and body proportions from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands text watermark extra limbs extra tail
+KF04｜咖啡喷到包子脸上
+adult ragdoll cat Baozi wearing a bright-red sports headband, frozen in shock behind a home coffee counter as a small accidental splash of coffee lands across the cheek fur, sapphire-blue eyes widened, ears upright, one front paw still resting near the espresso machine button, white cup slightly out of position, smartphone tripod recording the accident, realistic deadpan pet comedy, soft natural daylight, preserve Baozi's exact identity from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no injury human body human hands text watermark extra limbs extra tail
+KF05｜满脸奶泡强装镇定
+adult ragdoll cat Baozi wearing a bright-red sports headband, sitting behind the coffee counter with white milk foam lightly covering the muzzle, cheek fur and whiskers, looking directly into the smartphone camera with a completely serious aloof expression, stainless steel milk pitcher tipped slightly on the counter, small milk splashes around the working area, realistic deadpan challenge-video comedy, cozy modern apartment kitchen, soft natural daylight, preserve Baozi's exact face and body proportions from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands text subtitles watermark extra limbs extra tail
+KF06｜猫爪拉花成功
+close-up of a white ceramic latte cup on a warm wood kitchen counter, the coffee surface showing a clean accidental cat-paw-shaped milk foam pattern, adult ragdoll cat Baozi visible behind the cup with sapphire-blue eyes widened in surprise, bright-red sports headband, stainless steel milk pitcher beside one front paw, cozy apartment kitchen softly blurred in the background, soft natural daylight from the left, realistic food and pet photography, vertical composition, preserve Baozi's exact identity from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 220 --p [MOODBOARD_CODE] --raw --s 100 --no human hands text logo watermark extra limbs extra tail
+KF07｜包子举杯炫耀
+adult ragdoll cat Baozi wearing a bright-red sports headband and tiny wireless microphone, proudly presenting a white ceramic latte cup toward a vertical smartphone camera with both front paws supporting the saucer, cat-paw-shaped latte art visible from a slightly elevated camera angle, chin raised, self-satisfied expression, cozy modern apartment kitchen, soft natural daylight, realistic feline anatomy and subtle human-like behavior, preserve Baozi's exact identity from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands text watermark spilled cup extra limbs extra tail
+KF08｜听见主人回来
+adult ragdoll cat Baozi wearing a bright-red sports headband, frozen behind a messy coffee counter while holding a white latte cup, both ears sharply turned toward the apartment entrance, sapphire-blue eyes looking sideways in alarm, smartphone tripod still recording, coffee machine, milk pitcher and small foam splashes visible, cozy apartment kitchen connected to the entrance in the background, soft natural daylight, realistic suspenseful pet comedy, preserve Baozi's exact identity from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human body human hands text watermark extra limbs extra tail
+KF09｜女主人开门
+young Chinese woman opening the apartment entrance door and stepping inside, holding keys and a small tan shoulder bag, warm relaxed expression as she looks toward the living room and open kitchen, preserve the exact face, long black hair, cream knit top and light-blue jeans from the reference image, cozy modern apartment, soft natural daylight from inside, realistic lifestyle photography, vertical composition --ar 9:16 --v 7 --oref [OWNER_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no text logo watermark extra limbs
+KF10｜包子猫窝装乖
+adult ragdoll cat Baozi curled neatly inside a cream-colored cat bed beside a beige sofa, paws tucked under the chest, looking innocently toward the apartment entrance, no headband and no microphone visible, large fluffy tail discreetly covering a small edge of bright-red fabric behind the body, warm modern living room, soft natural daylight, realistic feline anatomy, preserve Baozi's exact identity from the reference image --ar 9:16 --v 7 --oref [BAOZI_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no human behavior human body text watermark extra limbs extra tail
+KF11｜女主人发现厨房混乱
+young Chinese woman standing between the living room and open kitchen, looking from a messy home coffee counter toward an off-screen cat bed with a puzzled expression, keys still in one hand, white latte cup with cat-paw foam art visible on the counter, preserve the exact face, long black hair, cream knit top and light-blue jeans from the reference image, cozy modern apartment, soft natural daylight, realistic lifestyle photography, vertical medium shot --ar 9:16 --v 7 --oref [OWNER_URL] --ow 250 --p [MOODBOARD_CODE] --raw --s 100 --no text logo watermark extra limbs
+KF12｜视频已经保存
+手机界面文字建议后期添加。
+close-up of a modern black smartphone mounted vertically on a small tabletop tripod in a cozy apartment kitchen, recording interface visible but without readable words, the screen showing a paused frame of an adult ragdoll cat wearing a red sports headband behind a coffee counter, small red recording indicator, warm wood surface, soft natural daylight, realistic product and lifestyle photography, shallow depth of field --ar 9:16 --raw --s 80 --p [MOODBOARD_CODE] --no readable text letters logo watermark distorted phone
+
+---
+十三、建议先生成的最小资产包
+不要一开始把全部提示词都跑一遍。
+先完成以下12项：
+1. 包子全身主视觉
+2. 包子头部主视觉
+3. 包子主播标准造型
+4. 包子猫窝装乖
+5. 包子自信表情
+6. 包子震惊表情
+7. 女主人全身主视觉
+8. 住宅总空间
+9. 开放式厨房
+10. 猫窝区域
+11. 咖啡机
+12. 白色拉花杯
+这12项通过以后，再制作剧情关键帧。
+
+---
+十四、生成结果筛选标准
+包子
+- 必须是同一只成年布偶猫
+- 面部重点色基本一致
+- 蓝色眼睛一致
+- 不变成人类身体
+- 不出现人类手掌
+- 发带造型一致
+- 毛发质感统一
+女主人
+- 面孔一致
+- 发型一致
+- 服装一致
+- 年龄感一致
+- 不出现明星化妆和礼服造型
+场景
+- 奶油色与浅木色统一
+- 窗户和主光位于左侧
+- 咖啡机位于操作台右侧
+- 猫窝位于沙发旁
+- 厨房、客厅和玄关可以互相连接
+道具
+- 咖啡机造型一致
+- 咖啡杯造型一致
+- 发带颜色一致
+- 手机始终竖屏
+- 挑战牌文字后期制作
+关键帧
+- 每张只表达一个核心动作
+- 角色视线方向清楚
+- 画面适合转换为视频首帧
+- 不把动作开始和结束同时塞进一张图
+- 为字幕和主播界面预留空间
