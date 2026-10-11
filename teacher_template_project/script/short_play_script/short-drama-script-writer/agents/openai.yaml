@@ -1,0 +1,6 @@
+interface:
+  display_name: "短剧分集剧本写作"
+  short_description: "把已确认的蓝图写成可拍摄分集剧本"
+  default_prompt: "使用 $short-drama-script-writer，根据已确认的故事蓝图和人物事实撰写或修改一集可拍摄的短剧剧本。"
+policy:
+  allow_implicit_invocation: true

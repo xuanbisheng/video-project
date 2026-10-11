@@ -1,0 +1,6 @@
+interface:
+  display_name: "通用线性剧本写作"
+  short_description: "创作、改编、续写和润色多种线性叙事剧本"
+  default_prompt: "使用 $general-script-writer 创作或修改一个可表演的线性叙事剧本。"
+policy:
+  allow_implicit_invocation: true

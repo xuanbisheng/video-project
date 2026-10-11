@@ -1,0 +1,7 @@
+interface:
+  display_name: "Script to Storyboard"
+  short_description: "将已确认影视剧本转换为连续可执行的文本分镜表并检查连续性"
+  default_prompt: "使用 $script-to-storyboard 将这份已确认剧本转换为标准模式文本分镜表。"
+policy:
+  allow_implicit_invocation: true
+
