@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seedance 2.5 Storyboard Prompt"
+  short_description: "Convert storyboards into Seedance 2.5 prompts up to 30 seconds"
+  default_prompt: "Convert the following storyboard into a Seedance 2.5 prompt:"
